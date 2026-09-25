@@ -36,7 +36,7 @@ func zoom(duration int, steps int, startValue, endValue float64, easingFunc Easi
 		easedT := easingFunc(t)
 		interpolatedValue := interInterpolatorFunc(startValue, endValue, easedT)
 
-		_ = exec.Command("hyprctl", "keyword", "cursor:zoom_factor", fmt.Sprintf("%f", interpolatedValue)).Run()
+		_ = exec.Command("hyprctl", "eval", fmt.Sprintf("hl.config({ cursor = {zoom_factor = %f} })", interpolatedValue)).Run()
 		time.Sleep(time.Duration(interval * float64(time.Second)))
 	}
 }
