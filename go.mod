@@ -1,4 +1,4 @@
-module hypr-zoom
+module github.com/eltrevii/hypr-zoom
 
 go 1.22.5
 
